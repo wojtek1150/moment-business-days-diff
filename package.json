@@ -1,6 +1,6 @@
 {
   "name": "moment-business-days-diff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MomentJS plugin to retrieve business days diff",
   "main": "index.js",
   "types": "./index.d.ts",
