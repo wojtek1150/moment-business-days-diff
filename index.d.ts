@@ -1,9 +1,16 @@
-import * as moment from 'moment';
+import * as m from 'moment';
 
-declare module 'moment' {
-  interface Moment {
-    isBusinessDay: (day: Moment | string) => boolean;
-    businessDiff: (start: Moment | string, end: Moment | string) => number;
-    countBusinessDaysInDaysFromDate: (start: Moment | string, days: number) => number;
+declare function moment(inp?: m.MomentInput, format?: m.MomentFormatSpecification, strict?: boolean): moment.Moment;
+declare function moment(inp?: m.MomentInput, format?: m.MomentFormatSpecification, language?: string, strict?: boolean): moment.Moment;
+
+declare namespace moment {
+
+  interface Moment{
+    isBusinessDay: () => boolean;
+    businessDiff: (param: Moment | string) => number;
+    countBusinessDaysInDaysFromDate: (days: number) => number;
   }
 }
+
+
+export = moment;
