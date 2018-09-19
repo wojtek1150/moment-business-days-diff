@@ -5,10 +5,12 @@ declare function moment(inp?: m.MomentInput, format?: m.MomentFormatSpecificatio
 
 declare namespace moment {
 
-  interface Moment{
+  interface Moment extends m.Moment{
     isBusinessDay: () => boolean;
     businessDiff: (param: Moment | string) => number;
     countBusinessDaysInDaysFromDate: (days: number) => number;
+    businessSubtract: (days: number) => Moment;
+    businessAdd: (days: number) => Moment;
   }
 }
 

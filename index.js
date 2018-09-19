@@ -42,6 +42,27 @@ if (typeof require === 'function') {
     return counter;
   };
 
+  moment.fn.businessAdd = function(number) {
+    var day = this.clone();
+    var signal = number < 0 ? -1 : 1;
+    var remaining = Math.abs(number);
+
+    while (remaining) {
+      day.add(signal, 'days');
+
+      if (day.isBusinessDay()) {
+        remaining--;
+      }
+    }
+
+    return day;
+  };
+
+  moment.fn.businessSubtract = function(number, period) {
+    return this.businessAdd(-number, period);
+  };
+
+
   if (typeof module != 'undefined' && module.exports) {
     module.exports = moment;
   }
