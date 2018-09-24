@@ -14,8 +14,8 @@ if (typeof require === 'function') {
     const start = d1 < d2 ? d1 : d2;
     const end = d2 > d1 ? d2 : d1;
 
-    const startDateMoment = moment(start.format('YYYY-MM-DD'));
-    const endDateMoment = moment(end.format('YYYY-MM-DD'));
+    const startDateMoment = moment(start.format('YYYY-MM-DD'), 'YYYY-MM-DD');
+    const endDateMoment = moment(end.format('YYYY-MM-DD'), 'YYYY-MM-DD');
 
     const stdDiff = endDateMoment.diff(startDateMoment, 'days');
     let numOfDays = 0;
@@ -42,7 +42,7 @@ if (typeof require === 'function') {
     return counter;
   };
 
-  moment.fn.businessAdd = function(number) {
+  moment.fn.businessAdd = function (number) {
     var day = this.clone();
     var signal = number < 0 ? -1 : 1;
     var remaining = Math.abs(number);
@@ -58,7 +58,7 @@ if (typeof require === 'function') {
     return day;
   };
 
-  moment.fn.businessSubtract = function(number, period) {
+  moment.fn.businessSubtract = function (number, period) {
     return this.businessAdd(-number, period);
   };
 
